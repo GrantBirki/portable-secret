@@ -8,6 +8,7 @@
   <head>
     <meta charset="UTF-8" />
     <link href="./primer.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
     <script>
       const blockSize = 16; // bytes (for AES, IV)
       const saltSize = 16; // bytes (for PBKDF2)
@@ -295,25 +296,28 @@
         >!
       </p>
 
+      <hr class="centered-hr" />
+
       <!-- Inputs -->
 
-      <div>
+      <div class="spacing">
+        <h2>1. Salt and IV 🧂</h2>
+        <p>Generate a new salt and IV or use the auto-generated values.<br>Do not reuse these values across messages.</p>
+        </p>
         Salt: 0x
         <input type="text" id="salt" size="33" value="❓" required />
-        <input type="button" value="🔄" onclick="refreshSalt()" />
+        <input class="spacing" type="button" value="🔄" onclick="refreshSalt()" />
         <br />
         IV: 0x
         <input type="text" id="iv" size="33" value="❓" required />
-        <input type="button" value="🔄" onclick="refreshIV()" />
-        <p>
-          <small
-            >Salt and IV are random input coming straight from your browser's
-            Random Number Generator. Do not reuse across messages.</small
-          >
-        </p>
+        <input class="spacing" type="button" value="🔄" onclick="refreshIV()" />
       </div>
 
+      <hr class="centered-hr" />
+
       <div>
+        <h2>2. Password 🔑</h2>
+        <p>Please choose a strong and complex password to encrypt your secret</p>
         Password:<br />
         <input type="text" id="password" value="banana" required />
       </div>
@@ -326,7 +330,13 @@ A yellow elongated fruit (technically a berry!)
         >
       </div>
 
+      <hr class="centered-hr" />
+
       <!-- Radio selector for type of secret -->
+
+      <h2>
+        3. Secret 🔒
+      </h2>
 
       <form>
         <input
@@ -384,9 +394,10 @@ A yellow elongated fruit (technically a berry!)
       <!-- Generate button, and Download link -->
 
       <div>
-        <button type="button" onclick="createSecret()">
+        <button class="btn" type="button" onclick="createSecret()">
           ⚡️ Generate secret
         </button>
+        <br/>
         <span id="errormsg"></span>
       </div>
       <div>
@@ -397,7 +408,9 @@ A yellow elongated fruit (technically a berry!)
 
       <!-- Cipertext -->
 
-      <details>
+      <hr class="centered-hr" />
+
+      <details style="margin-top: 20px; margin-bottom: 40px;">
         <summary>Show ciphertext</summary>
         <div>
           <textarea rows="8" cols="80" id="cipher"></textarea>

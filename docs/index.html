@@ -1,37 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-color-mode="dark" data-dark-theme="dark_dimmed">
   <head>
     <meta charset="UTF-8" />
-    <style>
-      body {
-        background-color: lavender;
-        font-size: large;
-        margin: 50px;
-      }
-
-      div {
-        margin: 5px;
-      }
-
-      button {
-        font-size: large;
-        padding: 12px 20px;
-      }
-
-      input {
-        font-family: monospace;
-        font-size: large;
-      }
-
-      textarea {
-        font-family: monospace;
-        font-size: large;
-      }
-
-      a.download_link {
-        font-size: xx-large;
-      }
-    </style>
+    <link href="./primer.css" rel="stylesheet" />
     <script>
       const blockSize = 16; // bytes (for AES, IV)
       const saltSize = 16; // bytes (for PBKDF2)
@@ -303,15 +274,16 @@
   </head>
   <body onload="init()">
     <h1>
-      <a href="https://mprimi.github.io/portable-secret/">Portable Secret</a>:
-      Secret Creator
+      <a href="https://github.com/GrantBirki/portable-secret/"
+        >Portable Secret</a
+      >: Secret Creator
     </h1>
     <p>
       This tool runs entirely in your browser window.
       <strong>The secret never leaves your computer!</strong><br />
       But don't take my word for it. Check out the
       <a
-        href="https://github.com/mprimi/portable-secret/tree/main/creator"
+        href="https://github.com/GrantBirki/portable-secret/tree/main/creator"
         target="_blank"
         >source code</a
       >!

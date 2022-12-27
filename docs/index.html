@@ -26,7 +26,7 @@
       async function init() {
         await refreshSalt();
         await refreshIV();
-        setMessage("Select secret type: message, image, or file");
+        setMessage("");
       }
 
       async function encrypt() {
@@ -338,7 +338,11 @@ A yellow elongated fruit (technically a berry!)
         3. Secret 🔒
       </h2>
 
-      <form>
+      <p>
+        Select type of secret to encrypt
+      </p>
+
+      <form class="spacing">
         <input
           type="radio"
           id="text_option"
@@ -393,12 +397,12 @@ A yellow elongated fruit (technically a berry!)
 
       <!-- Generate button, and Download link -->
 
-      <div>
+      <div style="margin-top: 20px">
         <button class="btn" type="button" onclick="createSecret()">
           ⚡️ Generate secret
         </button>
         <br/>
-        <span id="errormsg"></span>
+        <span style="font-size: small;" id="errormsg"></span>
       </div>
       <div>
         <a id="target_link" class="download_link" download="secret.html" hidden

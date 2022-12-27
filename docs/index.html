@@ -305,11 +305,11 @@
         <p>Generate a new salt and IV or use the auto-generated values.<br>Do not reuse these values across messages.</p>
         </p>
         Salt: 0x
-        <input type="text" id="salt" size="33" value="❓" required />
+        <input class="mono" type="text" id="salt" size="33" value="❓" required />
         <input class="spacing" type="button" value="🔄" onclick="refreshSalt()" />
         <br />
         IV: 0x
-        <input type="text" id="iv" size="33" value="❓" required />
+        <input class="mono" type="text" id="iv" size="33" value="❓" required />
         <input class="spacing" type="button" value="🔄" onclick="refreshIV()" />
       </div>
 
@@ -319,7 +319,7 @@
         <h2>2. Password 🔑</h2>
         <p>Please choose a strong and complex password to encrypt your secret</p>
         Password:<br />
-        <input type="text" id="password" value="banana" required />
+        <input size="50" class="mono" type="text" id="password" value="banana" required />
       </div>
 
       <div>

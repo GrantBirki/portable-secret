@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark_dimmed">
+<html
+  lang="en"
+  data-color-mode="auto"
+  data-light-theme="light"
+  data-dark-theme="dark_dimmed"
+>
   <head>
     <meta charset="UTF-8" />
     <link href="./primer.css" rel="stylesheet" />
@@ -273,129 +278,131 @@
     </script>
   </head>
   <body onload="init()">
-    <h1>
-      <a href="https://github.com/GrantBirki/portable-secret/"
-        >Portable Secret</a
-      >: Secret Creator
-    </h1>
-    <p>
-      This tool runs entirely in your browser window.
-      <strong>The secret never leaves your computer!</strong><br />
-      But don't take my word for it. Check out the
-      <a
-        href="https://github.com/GrantBirki/portable-secret/tree/main/creator"
-        target="_blank"
-        >source code</a
-      >!
-    </p>
-
-    <!-- Inputs -->
-
-    <div>
-      Salt: 0x
-      <input type="text" id="salt" size="33" value="❓" required />
-      <input type="button" value="🔄" onclick="refreshSalt()" />
-      <br />
-      IV: 0x
-      <input type="text" id="iv" size="33" value="❓" required />
-      <input type="button" value="🔄" onclick="refreshIV()" />
+    <div class="Box">
+      <h1>
+        <a href="https://github.com/GrantBirki/portable-secret/"
+          >Portable Secret</a
+        >: Secret Creator
+      </h1>
       <p>
-        <small
-          >Salt and IV are random input coming straight from your browser's
-          Random Number Generator. Do not reuse across messages.</small
-        >
+        This tool runs entirely in your browser window.
+        <strong>The secret never leaves your computer!</strong><br />
+        But don't take my word for it. Check out the
+        <a
+          href="https://github.com/GrantBirki/portable-secret/tree/main/creator"
+          target="_blank"
+          >source code</a
+        >!
       </p>
-    </div>
 
-    <div>
-      Password:<br />
-      <input type="text" id="password" value="banana" required />
-    </div>
+      <!-- Inputs -->
 
-    <div>
-      Password hint:<br />
-      <textarea rows="8" cols="80" id="password_hint" required>
+      <div>
+        Salt: 0x
+        <input type="text" id="salt" size="33" value="❓" required />
+        <input type="button" value="🔄" onclick="refreshSalt()" />
+        <br />
+        IV: 0x
+        <input type="text" id="iv" size="33" value="❓" required />
+        <input type="button" value="🔄" onclick="refreshIV()" />
+        <p>
+          <small
+            >Salt and IV are random input coming straight from your browser's
+            Random Number Generator. Do not reuse across messages.</small
+          >
+        </p>
+      </div>
+
+      <div>
+        Password:<br />
+        <input type="text" id="password" value="banana" required />
+      </div>
+
+      <div>
+        Password hint:<br />
+        <textarea rows="8" cols="80" id="password_hint" required>
 A yellow elongated fruit (technically a berry!)
 6 letters, all lowercase.</textarea
-      >
-    </div>
-
-    <!-- Radio selector for type of secret -->
-
-    <form>
-      <input
-        type="radio"
-        id="text_option"
-        name="input_type"
-        value="message"
-        onclick="setInputType('message')"
-      />
-      <label for="text_option">Message</label>
-      <input
-        type="radio"
-        id="image_option"
-        name="input_type"
-        value="image"
-        onclick="setInputType('image')"
-      />
-      <label for="image_option">Image</label>
-      <input
-        type="radio"
-        id="file_option"
-        name="input_type"
-        value="file"
-        onclick="setInputType('file')"
-      />
-      <label for="file_option">File</label>
-    </form>
-
-    <!-- Input types, only one visible at time -->
-
-    <div id="text_input_div" hidden>
-      <h2>📝 Secret message</h2>
-      <textarea
-        rows="16"
-        cols="80"
-        id="text_input"
-        name="text_content"
-      ></textarea>
-    </div>
-    <div id="image_input_div" hidden>
-      <h2>🌆 Secret image</h2>
-      <input
-        type="file"
-        id="image_input"
-        alt="Upload"
-        name="image_content"
-        accept="image/*"
-      />
-    </div>
-    <div id="file_input_div" hidden>
-      <h2>📎 Secret File</h2>
-      <input type="file" id="file_input" name="file_content" />
-    </div>
-
-    <!-- Generate button, and Download link -->
-
-    <div>
-      <button type="button" onclick="createSecret()">
-        ⚡️ Generate secret
-      </button>
-      <span id="errormsg"></span>
-    </div>
-    <div>
-      <a id="target_link" class="download_link" download="secret.html" hidden
-        >Save secret.html</a
-      >
-    </div>
-
-    <!-- Cipertext -->
-
-    <details>
-      <summary>Show ciphertext</summary>
-      <div>
-        <textarea rows="8" cols="80" id="cipher"></textarea>
+        >
       </div>
-    </details>
+
+      <!-- Radio selector for type of secret -->
+
+      <form>
+        <input
+          type="radio"
+          id="text_option"
+          name="input_type"
+          value="message"
+          onclick="setInputType('message')"
+        />
+        <label for="text_option">Message</label>
+        <input
+          type="radio"
+          id="image_option"
+          name="input_type"
+          value="image"
+          onclick="setInputType('image')"
+        />
+        <label for="image_option">Image</label>
+        <input
+          type="radio"
+          id="file_option"
+          name="input_type"
+          value="file"
+          onclick="setInputType('file')"
+        />
+        <label for="file_option">File</label>
+      </form>
+
+      <!-- Input types, only one visible at time -->
+
+      <div id="text_input_div" hidden>
+        <h2>📝 Secret message</h2>
+        <textarea
+          rows="16"
+          cols="80"
+          id="text_input"
+          name="text_content"
+        ></textarea>
+      </div>
+      <div id="image_input_div" hidden>
+        <h2>🌆 Secret image</h2>
+        <input
+          type="file"
+          id="image_input"
+          alt="Upload"
+          name="image_content"
+          accept="image/*"
+        />
+      </div>
+      <div id="file_input_div" hidden>
+        <h2>📎 Secret File</h2>
+        <input type="file" id="file_input" name="file_content" />
+      </div>
+
+      <!-- Generate button, and Download link -->
+
+      <div>
+        <button type="button" onclick="createSecret()">
+          ⚡️ Generate secret
+        </button>
+        <span id="errormsg"></span>
+      </div>
+      <div>
+        <a id="target_link" class="download_link" download="secret.html" hidden
+          >Save secret.html</a
+        >
+      </div>
+
+      <!-- Cipertext -->
+
+      <details>
+        <summary>Show ciphertext</summary>
+        <div>
+          <textarea rows="8" cols="80" id="cipher"></textarea>
+        </div>
+      </details>
+    </div>
   </body>
 </html>
